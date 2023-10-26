@@ -14,7 +14,7 @@ from langchain.tools import DuckDuckGoSearchResults
 if "openai.api_key" in st.secrets:
     openai.api_key = st.secrets.openai_api_key
 else:
-    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key="1")
+    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key="openai_key")
 if not openai.api_key:
     st.title("Hello, I'm your stock analyser ")
     st.info("Enter an OpenAI API Key to continue")
