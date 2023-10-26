@@ -189,18 +189,18 @@ def main():
     if "openai.api_key" in st.secrets:
      openai.api_key = st.secrets.openai_api_key
     else:
-     openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key= str(uuid.uuid4()))
+     openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key= 'api_key_input')
    
     if not openai.api_key:
-     st.title("Stock analyzer")
-     st.info("Enter an OpenAI API Key to continue")
-     st.info("If you are not sure on how to get your OpenAI API key:")
-     st.info( " 1) Please visit https://platform.openai.com/account/api-keys")
-     st.info(" 2) Click on 'Create new key' and copy and save the key in a safe location")
-     st.stop()
-     st.title("Stock analyzer")
+      st.title("Stock analyzer")
+      st.info("Enter an OpenAI API Key to continue")
+      st.info("If you are not sure on how to get your OpenAI API key:")
+      st.info( " 1) Please visit https://platform.openai.com/account/api-keys")
+      st.info(" 2) Click on 'Create new key' and copy and save the key in a safe location")
+      st.stop()
+      st.title("Stock analyzer")
 
-    company_name = st.text_input('Company name:', key=str(uuid.uuid4()))
+    company_name = st.text_input('Company name:', key='company_name_input')
     analyze_button = st.button("Analyze")
 
     if analyze_button:
