@@ -11,9 +11,9 @@ from langchain.tools import DuckDuckGoSearchResults
 # Set up LLM
 # Get an OpenAI API Key before continuing
 if "openai.api_key" in st.secrets:
-     openai.api_key = st.secrets.openai_api_key
+      openai.api_key = st.secrets.openai_api_key
 else:
-     openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key= 'api_key_input')
+      openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key= 'api_key_input')
    
 if not openai.api_key:
       st.title("Stock analyzer")
@@ -28,7 +28,7 @@ def get_company_news(company_name):
   
   duckduckgo = DuckDuckGoSearchResults()
 
-  results = duckduckgo(f"{company_name} backend=\"news\"")
+  results = duckduckgo(f"{company_name} backend=\"news\"").run()
 
   return results
  
