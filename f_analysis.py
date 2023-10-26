@@ -24,7 +24,7 @@ if not openai.api_key:
       st.info( " 1) Please visit https://platform.openai.com/account/api-keys")
       st.info(" 2) Click on 'Create new key' and copy and save the key in a safe location")
       st.stop()
-      st.title("Stock analyzer")
+     
 #Define Functions
 def get_company_news(company_name):
   
