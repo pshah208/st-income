@@ -8,7 +8,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from langchain.tools import DuckDuckGoSearchResults
 from dotenv import load_dotenv
-impoert uuid
+import uuid
 load_dotenv()
 # Set up LLM
 # Get an OpenAI API Key before continuing
