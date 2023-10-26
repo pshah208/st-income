@@ -28,7 +28,7 @@ if not openai.api_key:
 
 st.title("Stock analyzer")
 count += 1
-company_name = st.text_input('Company name:', key=count)
+company_name = st.text_input('Company name:', key='companyname')
 analyze_button = st.button("Analyze")
 
 #Define Functions
