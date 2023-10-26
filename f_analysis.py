@@ -8,15 +8,16 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from langchain.tools import DuckDuckGoSearchResults
 from dotenv import load_dotenv
-import uuid
+
 load_dotenv()
 # Set up LLM
 # Get an OpenAI API Key before continuing
-
+count = 0
 if "openai.api_key" in st.secrets:
     openai.api_key = st.secrets.openai_api_key
 else:
-    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password")
+    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key = count)
+    count+= 1
 if not openai.api_key:
     st.title("Stock analyzer")
     st.info("Enter an OpenAI API Key to continue")
@@ -202,7 +203,7 @@ from f_analysis import financial_analyst
 def main():
     st.title("Stock analyzer")
 
-    company_name = st.text_input('Company name:', key='companyname')
+    company_name = st.text_input('Company name:', key=count)
     analyze_button = st.button("Analyze")
 
     if analyze_button:
