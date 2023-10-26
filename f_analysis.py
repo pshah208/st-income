@@ -8,7 +8,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import cons
 
-load_dotenv()
+
 # Get an OpenAI API Key before continuing
 if "openai.api_key" in st.secrets:
       openai.api_key = st.secrets.openai_api_key
