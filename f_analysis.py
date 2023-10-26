@@ -187,9 +187,9 @@ from f_analysis import financial_analyst
 
 def main():
     if "openai.api_key" in st.secrets:
-    openai.api_key = st.secrets.openai_api_key
+     openai.api_key = st.secrets.openai_api_key
     else:
-    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key= str(uuid.uuid4()))
+     openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key= str(uuid.uuid4()))
    
     if not openai.api_key:
     st.title("Stock analyzer")
