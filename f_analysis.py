@@ -23,12 +23,10 @@ if not openai.api_key:
      
 #Define Functions
 def get_company_news(company_name):
-  
-  duckduckgo = DuckDuckGoSearchResults()
-
-  results = duckduckgo(f"{company_name} backend=\"news\"").run()
-
-  return results
+    duckduckgo = DuckDuckGoSearchResults()
+    query = f"{company_name} backend=\"news\""
+    results = duckduckgo.run(query)
+    return results
  
 def write_news_to_file(news, filename):
     with open(filename, 'w') as file:
