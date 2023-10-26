@@ -7,8 +7,9 @@ import openai
 import streamlit as st
 import matplotlib.pyplot as plt
 from langchain.tools import DuckDuckGoSearchResults
+from dotenv import load_dotenv
 
-# Set up LLM
+load_dotenv()
 # Get an OpenAI API Key before continuing
 if "openai.api_key" in st.secrets:
       openai.api_key = st.secrets.openai_api_key
