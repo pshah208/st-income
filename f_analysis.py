@@ -6,8 +6,6 @@ from yahooquery import Ticker
 import openai
 import streamlit as st
 import matplotlib.pyplot as plt
-from langchain.tools import DuckDuckGoSearchResults
-from dotenv import load_dotenv
 import cons
 
 load_dotenv()
@@ -37,7 +35,8 @@ def get_company_news(company_name):
     data = response.json()
 
     return data.get('news_results')
- 
+
+
 def write_news_to_file(news, filename):
     with open(filename, 'w') as file:
         for news_item in news:
@@ -236,4 +235,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
