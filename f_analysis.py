@@ -11,11 +11,11 @@ from langchain.tools import DuckDuckGoSearchResults
 
 # Set up LLM
 # Get an OpenAI API Key before continuing
-if "openai_api_key" in st.secrets:
-    openai_api_key = st.secrets.openai_api_key
+if "openai.api_key" in st.secrets:
+    openai.api_key = st.secrets.openai.api_key
 else:
-    openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
-if not openai_api_key:
+    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key="apikey" )
+if not openai.api_key:
     st.title("Hello, I'm `Creed` your Youtube Assistant 👓")
     st.info("Enter an OpenAI API Key to continue")
     st.info("If you are not sure on how to get your OpenAI API key:")
