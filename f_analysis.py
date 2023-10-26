@@ -8,8 +8,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from langchain.tools import DuckDuckGoSearchResults
 
-import uuid
-
 # Set up LLM
 # Get an OpenAI API Key before continuing
 if "openai.api_key" in st.secrets:
@@ -192,7 +190,7 @@ def financial_analyst(request):
         return (second_response["choices"][0]["message"]["content"], hist)
 
 #Setup Streamlit frontend
-from f1sis import financial_analyst
+from f_analysis import financial_analyst
 
 def main():
     st.title("GenAI stock analyzer")
