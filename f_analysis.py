@@ -196,7 +196,7 @@ from f_analysis import financial_analyst
 
 def main():
     st.title("Stock analyzer")
-    company_name = st.text_input('Company name:', key="company")
+    company_name = st.text_input('Company name:', key=None)
 
     analyze_button = st.button("Analyze")
 
