@@ -193,11 +193,11 @@ def financial_analyst(request):
 
 #Setup Streamlit frontend
 from f_analysis import financial_analyst
+st.title("Stock analyzer")
+company_name = st.text_input("Company name:", key="company")
 
 def main():
-    st.title("Stock analyzer")
-
-    company_name = st.text_input("Company name:", key="company_name")
+    
     analyze_button = st.button("Analyze")
 
     if analyze_button:
