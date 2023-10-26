@@ -15,7 +15,7 @@ load_dotenv()
 if "openai.api_key" in st.secrets:
     openai.api_key = st.secrets.openai_api_key
 else:
-    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key='api-key')
+    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key='fweqggergargqw')
 if not openai.api_key:
     st.title("Hello, I'm your Stock Analyzer")
     st.info("Enter an OpenAI API Key to continue")
@@ -198,7 +198,7 @@ from f_analysis import financial_analyst
 
 def main():
     st.title("Stock analyzer")
-    company_name = st.text_input('Company name:', key='company_name')
+    company_name = st.text_input('Company name:', key='sdgwergwrahaefs')
 
     analyze_button = st.button("Analyze")
 
