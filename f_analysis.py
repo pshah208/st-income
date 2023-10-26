@@ -19,9 +19,6 @@ else:
 if not openai.api_key:
       st.title("Stock analyzer")
       st.info("Enter an OpenAI API Key to continue")
-      st.info("If you are not sure on how to get your OpenAI API key:")
-      st.info( " 1) Please visit https://platform.openai.com/account/api-keys")
-      st.info(" 2) Click on 'Create new key' and copy and save the key in a safe location")
       st.stop()
      
 #Define Functions
