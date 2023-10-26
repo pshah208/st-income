@@ -12,11 +12,11 @@ from dotenv import load_dotenv
 load_dotenv()
 # Set up LLM
 # Get an OpenAI API Key before continuing
-count = 0
+
 if "openai.api_key" in st.secrets:
     openai.api_key = st.secrets.openai_api_key
 else:
-    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key=count)
+    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key='apikey')
 if not openai.api_key:
     st.title("Hello, I'm your Stock Analyzer")
     st.info("Enter an OpenAI API Key to continue")
@@ -27,7 +27,7 @@ if not openai.api_key:
 
 
 st.title("Stock analyzer")
-count += 1
+
 company_name = st.text_input('Company name:', key='companyname')
 analyze_button = st.button("Analyze")
 
