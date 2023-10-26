@@ -192,13 +192,13 @@ def main():
      openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key= str(uuid.uuid4()))
    
     if not openai.api_key:
-    st.title("Stock analyzer")
-    st.info("Enter an OpenAI API Key to continue")
-    st.info("If you are not sure on how to get your OpenAI API key:")
-    st.info( " 1) Please visit https://platform.openai.com/account/api-keys")
-    st.info(" 2) Click on 'Create new key' and copy and save the key in a safe location")
-    st.stop()
-    st.title("Stock analyzer")
+     st.title("Stock analyzer")
+     st.info("Enter an OpenAI API Key to continue")
+     st.info("If you are not sure on how to get your OpenAI API key:")
+     st.info( " 1) Please visit https://platform.openai.com/account/api-keys")
+     st.info(" 2) Click on 'Create new key' and copy and save the key in a safe location")
+     st.stop()
+     st.title("Stock analyzer")
 
     company_name = st.text_input('Company name:', key=str(uuid.uuid4()))
     analyze_button = st.button("Analyze")
