@@ -28,7 +28,7 @@ def get_company_news(company_name):
   
   duckduckgo = DuckDuckGoSearchResults()
 
-  results = duckduckgo(f"{company_name} backend=\"news\"")
+  results = duckduckgo(f"{company_name} backend=\"news\"").run()
 
   return results
  
