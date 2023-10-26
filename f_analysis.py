@@ -18,7 +18,7 @@ if "openai.api_key" in st.secrets:
 else:
     openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key=key)
 if not openai.api_key:
-    st.title("Hello, I'm `Creed` your Youtube Assistant 👓")
+    st.title("Hello, I'm your Stock Analyzer")
     st.info("Enter an OpenAI API Key to continue")
     st.info("If you are not sure on how to get your OpenAI API key:")
     st.info( " 1) Please visit https://platform.openai.com/account/api-keys")
