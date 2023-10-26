@@ -22,8 +22,6 @@ if not openai.api_key:
     st.info( " 1) Please visit https://platform.openai.com/account/api-keys")
     st.info(" 2) Click on 'Create new key' and copy and save the key in a safe location")
     st.stop()
-st.title("Stock analyzer")
-company_name = st.text_input("Company name:", key="company")
 
 #Define Functions
 def get_company_news(company_name):
@@ -198,7 +196,9 @@ from f_analysis import financial_analyst
 
 
 def main():
-    
+    st.title("Stock analyzer")
+    company_name = st.text_input('Company name:', key="company")
+
     analyze_button = st.button("Analyze")
 
     if analyze_button:
