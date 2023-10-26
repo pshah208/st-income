@@ -8,6 +8,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from langchain.tools import DuckDuckGoSearchResults
 from dotenv import load_dotenv
+from y2 import constants
 
 load_dotenv()
 # Get an OpenAI API Key before continuing
@@ -20,13 +21,22 @@ if not openai.api_key:
       st.title("Stock analyzer")
       st.info("Enter an OpenAI API Key to continue")
       st.stop()
-     
+      
+os.environ["SERPAPI_API_KEY"] = constants.SERPAPI_API_KEY    
+
 #Define Functions
 def get_company_news(company_name):
-    duckduckgo = DuckDuckGoSearchResults()
-    query = f"{company_name} backend=\"news\""
-    results = duckduckgo.run(query)
-    return results
+    params = {
+        "engine": "google",
+        "tbm": "nws",
+        "q": company_name,
+        "api_key": os.environ["SERPAPI_API_KEY"],
+    }
+
+    response = requests.get('https://serpapi.com/search', params=params)
+    data = response.json()
+
+    return data.get('news_results')
  
 def write_news_to_file(news, filename):
     with open(filename, 'w') as file:
