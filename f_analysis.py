@@ -7,14 +7,16 @@ import openai
 import streamlit as st
 import matplotlib.pyplot as plt
 from langchain.tools import DuckDuckGoSearchResults
+import uuid
 
+key = uuid.uuid4().hex 
 
 # Set up LLM
 # Get an OpenAI API Key before continuing
 if "openai.api_key" in st.secrets:
     openai.api_key = st.secrets.openai.api_key
 else:
-    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key="apikey" )
+    openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key=key)
 if not openai.api_key:
     st.title("Hello, I'm `Creed` your Youtube Assistant 👓")
     st.info("Enter an OpenAI API Key to continue")
@@ -196,7 +198,7 @@ from f_analysis import financial_analyst
 
 def main():
     st.title("Stock analyzer")
-    company_name = st.text_input('Company name:', key=None)
+    company_name = st.text_input('Company name:', key=key)
 
     analyze_button = st.button("Analyze")
 
