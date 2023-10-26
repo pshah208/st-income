@@ -16,7 +16,7 @@ if "openai.api_key" in st.secrets:
 else:
     openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 if not openai.api_key:
-    st.title("Hello, I'm `FT-Bot` your M365 Fasttrack Assistant 👓 from Softchoice ")
+    st.title("Hello, I'm your stock analyser ")
     st.info("Enter an OpenAI API Key to continue")
     st.info("If you are not sure on how to get your OpenAI API key:")
     st.info( " 1) Please visit https://platform.openai.com/account/api-keys")
@@ -195,7 +195,7 @@ def financial_analyst(request):
 from f1sis import financial_analyst
 
 def main():
-    st.title("GenAI stock analyzer")
+    st.title("Stock analyzer")
 
     company_name = st.text_input("Company name:")
     analyze_button = st.button("Analyze")
