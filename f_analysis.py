@@ -8,7 +8,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from langchain.tools import DuckDuckGoSearchResults
 from dotenv import load_dotenv
-from y2 import constants
+import cons
 
 load_dotenv()
 # Get an OpenAI API Key before continuing
@@ -22,7 +22,7 @@ if not openai.api_key:
       st.info("Enter an OpenAI API Key to continue")
       st.stop()
       
-os.environ["SERPAPI_API_KEY"] = constants.SERPAPI_API_KEY    
+os.environ["SERPAPI_API_KEY"] = cons.SERPAPI_API_KEY    
 
 #Define Functions
 def get_company_news(company_name):
