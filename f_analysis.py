@@ -34,8 +34,6 @@ def get_company_news(company_name):
 
   return results
  
-
-
 def write_news_to_file(news, filename):
     with open(filename, 'w') as file:
         for news_item in news:
@@ -194,12 +192,12 @@ def financial_analyst(request):
         return (second_response["choices"][0]["message"]["content"], hist)
 
 #Setup Streamlit frontend
-from f_analysis import financial_analyst
-
+from f1sis import financial_analyst
 
 def main():
-    st.title("Stock analyzer")
-    company_name = st.text_input('Company name:', key='company_name_input')
+    st.title("GenAI stock analyzer")
+
+    company_name = st.text_input("Company name:")
     analyze_button = st.button("Analyze")
 
     if analyze_button:
@@ -234,3 +232,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
