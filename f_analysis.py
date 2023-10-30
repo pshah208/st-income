@@ -13,7 +13,7 @@ import cons
 if "openai.api_key" in st.secrets:
       openai.api_key = st.secrets.openai_api_key
 else:
-      openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password", key= 'api_key_input')
+      openai.api_key = st.sidebar.text_input("OpenAI API Key", type="password")
    
 if not openai.api_key:
       st.title("Stock analyzer")
