@@ -1,22 +1,32 @@
 name: Run Python script
 
 on:
- workflow_dispatch:
+  push:
+    branches:
+      - main  # Change this to your default branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
 
-      - name: setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x' # install the latest python version
-      - name: execute py script 
-env:
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Replace with the Python version you need
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt  # Replace with your dependency installation command
+
+    - name: Execute Python script
+      env:
          openai.api_key = ${{secrets.OPENAI }}
          serpapi = ${{ secrets.SERPAPI_API_KEY }}
- run: python stanalysis.py
+      run: python stanalysis.py
    
 
     
