@@ -9,23 +9,11 @@ import matplotlib.pyplot as plt
 import env
 
 
-# Get an OpenAI API Key before continuing
-if "openai_api_key" in st.secrets:
-    openai_api_key = st.secrets.openai_api_key
-else:
-    openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password", key = "openai.api_key")
-if not openai_api_key:
-    st.title("Hello, I'm Income Statement Analyzer 👓")
-    st.info("Enter an OpenAI API Key to continue")
-    st.info("If you are not sure on how to get your OpenAI API key:")
-    st.info( " 1) Please visit https://platform.openai.com/account/api-keys")
-    st.info(" 2) Click on 'Create new key' and copy and save the key in a safe location")
-    st.stop()
       
-os.environ["SERPAPI_API_KEY"] = env.SERPAPI_API_KEY    
+os.environ["SERPAPI_API_KEY"] = secrets.SERPAPI_API_KEY    
 
 st.subheader("Successfully entered API Key")
-openai.api_key = openai_api_key
+openai.api_key = secrets.OPENAI
 
 def get_company_news(company_name):
     params = {
