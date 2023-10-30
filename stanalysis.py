@@ -9,9 +9,6 @@ import matplotlib.pyplot as plt
 import env
 
 
-      
-os.environ["SERPAPI_API_KEY"] = secrets.SERPAPI_API_KEY    
-
 openai.api_key = secrets.OPENAI
 
 def get_company_news(company_name):
@@ -19,7 +16,7 @@ def get_company_news(company_name):
         "engine": "google",
         "tbm": "nws",
         "q": company_name,
-        "api_key": os.environ["SERPAPI_API_KEY"],
+        "api_key": secrets.SERPAPI_API_KEY,
     }
 
     response = requests.get('https://serpapi.com/search', params=params)
