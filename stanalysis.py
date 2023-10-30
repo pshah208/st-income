@@ -6,7 +6,7 @@ from yahooquery import Ticker
 import openai
 import streamlit as st
 import matplotlib.pyplot as plt
-import env
+import secrets
 
 
 openai.api_key = secrets.OPENAI
