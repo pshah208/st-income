@@ -1,1 +1,22 @@
-name: Run Python Script
+name: Run Python script
+
+on:
+ workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # install the latest python version
+      - name: execute py script # email-from-python.py
+        env:
+         openai.api_key = ${{secrets.OPENAI }}
+         serpapi = ${{ secrets.SERPAPI_API_KEY }}
+        run: python stanalysis.py
+   
+
+    
