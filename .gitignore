@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+st-income/env.py
 
 # Spyder project settings
 .spyderproject
