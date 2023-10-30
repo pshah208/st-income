@@ -9,14 +9,15 @@ import matplotlib.pyplot as plt
 import secrets
 
 
-openai.api_key = secrets.OPENAI
+openai.api_key = ${{secrets.OPENAI}}
+serpapi = ${{ secrets.SERPAPI_API_KEY}}
 
 def get_company_news(company_name):
     params = {
         "engine": "google",
         "tbm": "nws",
         "q": company_name,
-        "api_key": secrets.SERPAPI_API_KEY,
+        "api_key": serpapi,
     }
 
     response = requests.get('https://serpapi.com/search', params=params)
