@@ -199,7 +199,7 @@ def financial_analyst(request):
         return (second_response["choices"][0]["message"]["content"], hist)
 
 #Setup Streamlit frontend
-from f_analysis import financial_analyst
+from stanalysis import financial_analyst
 
 def main():
     st.title("GenAI stock analyzer")
