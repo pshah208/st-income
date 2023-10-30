@@ -22,7 +22,7 @@ if not openai_api_key:
     st.info(" 2) Click on 'Create new key' and copy and save the key in a safe location")
     st.stop()
       
-os.environ["SERPAPI_API_KEY"] = cons.SERPAPI_API_KEY    
+os.environ["SERPAPI_API_KEY"] = env.SERPAPI_API_KEY    
 
 st.subheader("Successfully entered API Key")
 openai.api_key = openai_api_key
