@@ -7,10 +7,12 @@ import openai
 import streamlit as st
 import matplotlib.pyplot as plt
 import secrets
+from dotenv import find_dotenv, load_dotenv
 
+load_dotenv()
 
-openai.api_key = ${{secrets.OPENAI}}
-serpapi = ${{ secrets.SERPAPI_API_KEY}}
+openai.api_key = os.environ["openai.api_key"]
+serpapi = os.environ["serpapi"]
 
 def get_company_news(company_name):
     params = {
