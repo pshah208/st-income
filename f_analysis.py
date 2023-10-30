@@ -200,7 +200,7 @@ from f_analysis import financial_analyst
 def main():
     st.title("GenAI stock analyzer")
 
-    company_name = st.text_input("Company name:")
+    company_name = st.chat_input("Company name:")
     analyze_button = st.button("Analyze")
 
     if analyze_button:
