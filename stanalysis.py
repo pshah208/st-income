@@ -12,7 +12,6 @@ import env
       
 os.environ["SERPAPI_API_KEY"] = secrets.SERPAPI_API_KEY    
 
-st.subheader("Successfully entered API Key")
 openai.api_key = secrets.OPENAI
 
 def get_company_news(company_name):
