@@ -24,8 +24,8 @@ jobs:
 
     - name: Execute Python script
       env:
-         OPENAI_API_KEY = ${{ secrets.OPENAI }}
-         SERPAPI_API_KEY = ${{ secrets.SERPAPI_API_KEY }}
+       OPENAI_API_KEY: ${{ secrets.OPENAI }}
+       SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
       run: python stanalysis.py
    
 
