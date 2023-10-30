@@ -12,11 +12,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.x' # install the latest python version
-      - name: execute py script # email-from-python.py
-        env:
+      - name: execute py script 
+env:
          openai.api_key = ${{secrets.OPENAI }}
          serpapi = ${{ secrets.SERPAPI_API_KEY }}
-        run: python stanalysis.py
+ run: python stanalysis.py
    
 
     
