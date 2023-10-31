@@ -10,7 +10,7 @@ import secrets
 from dotenv import find_dotenv, load_dotenv
 
 
-#openai.api_key = os.environ["OPENAI_API_KEY"]
+openai.api_key = os.environ["OPENAI_API_KEY"]
 #serpapi = os.environ["SERPAPI_API_KEY"]
 
 def get_company_news(company_name):
