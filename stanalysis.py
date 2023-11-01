@@ -10,14 +10,14 @@ from dotenv import find_dotenv, load_dotenv
 
 
 openai.api_key =st.secrets["API_KEY"]
-serpapi = st.secrets["SERPAPI_API_KEY"]
+
 
 def get_company_news(company_name):
     params = {
         "engine": "google",
         "tbm": "nws",
         "q": company_name,
-        "api_key": serpapi,
+        "api_key": st.secrets["SERPAPI_API_KEY"],
     }
 
     response = requests.get('https://serpapi.com/search', params=params)
