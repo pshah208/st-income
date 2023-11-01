@@ -7,7 +7,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import secrets
 from dotenv import find_dotenv, load_dotenv
-
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 openai.api_key =st.secrets["API_KEY"]
 
@@ -22,8 +22,24 @@ def get_company_news(company_name):
 
     response = requests.get('https://serpapi.com/search', params=params)
     data = response.json()
+    
+    news_results = data.get('news_results', [])
+        # Initialize the sentiment analyzer
+    analyzer = SentimentIntensityAnalyzer()
 
-    return data.get('news_results')
+    # Add sentiment score to each news item
+    for news_item in news_results:
+        title = news_item.get('title', '')
+        content = news_item.get('snippet', '')  # Use 'snippet' for content
+
+        # Combine the title and content for analysis
+        text = title + ' ' + content
+
+        # Get sentiment scores
+        sentiment = analyzer.polarity_scores(text)
+        news_item['sentiment'] = sentiment
+
+    return news_results
 
 
 def write_news_to_file(news, filename):
