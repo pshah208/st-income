@@ -167,11 +167,11 @@ def financial_analyst(request):
                 message,
                 {
                     "role": "system",
-                    "content": """write a detailled stock/investment thesis to answer
+                    "content": """write a detailled investment thesis to answer
                       the user request as a html document. Provide numbers to justify
-                      your assertions. Provide
-                     a recommendation to buy or not to buy the stock of the company
-                    by analyzing recent news and income statement, but also give disclaimer on how 
+                      your assertions, a lot ideally. Provide
+                     a recommendation to buy the stock of the company
+                     or not given the information available, but also give disclaimer on how 
                      the data can change based on any new news and risks of investment."""
                 },
                 {
@@ -187,9 +187,10 @@ def financial_analyst(request):
 from stanalysis import financial_analyst
 
 def main():
-    st.title("Stock Analyzer")
+    st.title("Stock analyzer:")
+    st.subtitle("This is just an experimenting tool, not an investment advice")
 
-    company_name = st.text_input("Company name:", key='company_name')
+    company_name = st.text_input("Company name:")
     analyze_button = st.button("Analyze")
 
     if analyze_button:
