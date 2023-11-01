@@ -186,8 +186,8 @@ def financial_analyst(request):
                     "content": """write a detailled investment thesis to answer
                       the user request as a html document. Provide numbers to justify
                       your assertions, a lot ideally. Provide
-                     a recommendation to buy the stock of the company
-                     or not given the information available, but also give disclaimer on how 
+                     a recommendation to buy or not to buy the stock of the company
+                     or not given the information available and news sentiment, but also give disclaimer on how 
                      the data can change based on any new news and risks of investment."""
                 },
                 {
