@@ -20,3 +20,4 @@ yfinance
 yahooquery
 matplot
 duckduckgo_search
+vaderSentiment
