@@ -39,7 +39,7 @@ def get_company_news(company_name):
         sentiment = analyzer.polarity_scores(text)
         news_item['sentiment'] = sentiment
 
-    return data.get('news_results')
+    return data.get('news_results', sentiment)
 
 
 def write_news_to_file(news, filename):
