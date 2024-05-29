@@ -2,14 +2,14 @@ import requests
 import json
 import yfinance as yf
 from yahooquery import Ticker
-import openai
+from openai import OpenAI
 import streamlit as st
 import matplotlib.pyplot as plt
 import secrets
 from dotenv import find_dotenv, load_dotenv
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-openai.api_key =st.secrets["API_KEY"]
+OpenAI.api_key =st.secrets["API_KEY"]
 
 
 def get_company_news(company_name):
@@ -115,7 +115,7 @@ def get_data(company_name, company_ticker, period="1y", filename="investment.txt
 
 def financial_analyst(request):
     print(f"Received request: {request}")
-    response = openai.ChatCompletion.create(
+    response = OpenAI.chat.completion.create(
         model="gpt-3.5-turbo-0613",
         messages=[{
             "role":
