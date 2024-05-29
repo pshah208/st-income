@@ -10,7 +10,7 @@ from dotenv import find_dotenv, load_dotenv
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 OpenAI.api_key =st.secrets["API_KEY"]
-
+client = OpenAI()
 
 def get_company_news(company_name):
     params = {
@@ -115,7 +115,7 @@ def get_data(company_name, company_ticker, period="1y", filename="investment.txt
 
 def financial_analyst(request):
     print(f"Received request: {request}")
-    response = OpenAI.chat.completion.create(
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo-0613",
         messages=[{
             "role":
@@ -173,7 +173,7 @@ def financial_analyst(request):
         with open("investment.txt", "r") as file:
             content = file.read()[:14000]
 
-        second_response = openai.ChatCompletion.create(
+        second_response = client.chat.completions.create(
             model="gpt-3.5-turbo-16k",
             messages=[
                 {
