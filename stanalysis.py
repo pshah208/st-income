@@ -11,7 +11,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 openai.api_key =st.secrets["API_KEY"]
 
-openai migrate
+
 def get_company_news(company_name):
     params = {
         "engine": "google",
