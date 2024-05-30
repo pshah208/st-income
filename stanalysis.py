@@ -2,15 +2,15 @@ import requests
 import json
 import yfinance as yf
 from yahooquery import Ticker
-from openai import OpenAI
+import openai
 import streamlit as st
 import matplotlib.pyplot as plt
 import secrets
 from dotenv import find_dotenv, load_dotenv
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-OpenAI.api_key =st.secrets["OPENAI_API_KEY"]
-client = OpenAI()
+openai.api_key =st.secrets["API_KEY"]
+
 
 def get_company_news(company_name):
     params = {
@@ -115,8 +115,8 @@ def get_data(company_name, company_ticker, period="1y", filename="investment.txt
 
 def financial_analyst(request):
     print(f"Received request: {request}")
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo-0613",
         messages=[{
             "role":
             "user",
@@ -157,7 +157,7 @@ def financial_analyst(request):
         function_call={"name": "get_data"},
     )
 
-    message = response.get('choices', [{}])[0].get('message', {}).get('content', '')
+    message = response["choices"][0]["message"]
 
     if message.get("function_call"):
         # Parse the arguments from a JSON string to a Python dictionary
@@ -173,7 +173,7 @@ def financial_analyst(request):
         with open("investment.txt", "r") as file:
             content = file.read()[:14000]
 
-        second_response = client.chat.completions.create(
+        second_response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-16k",
             messages=[
                 {
@@ -204,7 +204,7 @@ from stanalysis import financial_analyst
 
 def main():
     st.title("Stock analyzer:")
-    st.subheader("This is an experimenting tool, not an investment advice.")
+    st.subheader("This is an experimenting tool, not an investment advice. Reference: https://github.com/Pranav082001/")
 
     company_name = st.text_input("Company name:")
     analyze_button = st.button("Analyze")
