@@ -204,7 +204,7 @@ from stanalysis import financial_analyst
 
 def main():
     st.title("Stock analyzer:")
-    st.subheader("This is an experimenting tool, not an investment advice. Reference: https://github.com/Pranav082001/")
+    st.subheader("This is an experimenting tool, not an investment advice.")
 
     company_name = st.text_input("Company name:")
     analyze_button = st.button("Analyze")
