@@ -116,7 +116,7 @@ def get_data(company_name, company_ticker, period="1y", filename="investment.txt
 def financial_analyst(request):
     print(f"Received request: {request}")
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo-0613",
+        model="gpt-3.5-turbo",
         messages=[{
             "role":
             "user",
@@ -157,7 +157,7 @@ def financial_analyst(request):
         function_call={"name": "get_data"},
     )
 
-    message = response["choices"][0]["message"]
+    message = response.choices[0].message.content
 
     if message.get("function_call"):
         # Parse the arguments from a JSON string to a Python dictionary
