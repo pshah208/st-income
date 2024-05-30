@@ -9,7 +9,7 @@ import secrets
 from dotenv import find_dotenv, load_dotenv
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-OpenAI.api_key =st.secrets["API_KEY"]
+OpenAI.api_key =st.secrets["OPENAI_API_KEY"]
 client = OpenAI()
 
 def get_company_news(company_name):
