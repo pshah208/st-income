@@ -157,7 +157,7 @@ def financial_analyst(request):
         function_call={"name": "get_data"},
     )
 
-    message = response.choices[0].message.content
+    message = response.get('choices', [{}])[0].get('message', {}).get('content', '')
 
     if message.get("function_call"):
         # Parse the arguments from a JSON string to a Python dictionary
